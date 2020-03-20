@@ -9,6 +9,11 @@ const forecast = require('./utils/forecast')
 const app = express()
 
 
+//for production in heroku ill use process.env.PORT 
+//on local machine it will use 3000 port
+const port = process.env.PORT || 3000
+
+
 
 
 //Define pathes for Express config
@@ -108,7 +113,7 @@ app.get('*', (req, res ) => {
 
 
 
-app.listen(3000, ()=>{
-    console.log('Server is up on port 3000');
+app.listen(port, ()=>{
+    console.log('Server is up on port ' + port);
     
 })
