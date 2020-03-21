@@ -80,12 +80,13 @@ app.get('/weather',(req, res) =>{
              return res.send({error: error} ) 
         }
 
-        forecast(latitude, longitude, (error, { summary,temp,rainProp }) => {
+        forecast(latitude, longitude, (error, { summary,temp,rainProp, icon }) => {
             res.send({
                 temp: temp,
                 forecast: summary,
                 rainProp: rainProp,
-                location: location
+                location: location,
+                icon: icon
 
             })
         })

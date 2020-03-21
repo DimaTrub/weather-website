@@ -2,16 +2,17 @@
 const weatherForm = document.querySelector('form')
 const searchInput = document.querySelector('input')
 
-const messageOne = document.querySelector('#message-1')
-const messageTwo = document.querySelector('#message-2')
-
+const locaion = document.querySelector('.loc')
+const summary = document.querySelector('.summary')
+const temp = document.querySelector('.temp')    
 
 
 weatherForm.addEventListener( 'submit', (e) => {
     //Document will not refresh after submit
     e.preventDefault()
-    messageOne.textContent = 'Loading...'
-    messageTwo.textContent = ''
+    locaion.textContent = 'Loading...'
+    summary.textContent = ''
+    temp.textContent = ''
    
     const searchValue = searchInput.value
     fetch('http://localhost:3000/weather?address=' + searchValue).then(( response ) => {
@@ -19,8 +20,12 @@ weatherForm.addEventListener( 'submit', (e) => {
             if(data.error){
                 messageOne.textContent = data.error
             } else {
-                messageOne.textContent = data.location
-                messageTwo.textContent = data.forecast
+                locaion.textContent = data.location
+                summary.textContent = data.forecast
+                temp.textContent = data.temp
+                let skycons1 = new Skycons({"color": "#3da4ab"});
+                skycons1.add("icon1",data.icon);
+                skycons1.play();
             }
         })   
     })  

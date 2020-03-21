@@ -60,3 +60,20 @@ button{
 
 }
 
+.jumbotron {
+    margin-top: 20px;
+}
+
+.temp{
+    font-size: 45px;
+    margin-top: 41px;
+    margin-bottom: auto;  
+    
+    
+
+}
+canvas{
+    
+    margin-left: 150px;
+    padding-bottom: 15px;
+}
